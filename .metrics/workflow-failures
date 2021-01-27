@@ -240,6 +240,7 @@
 2021-01-27T19:39:42Z,endtoend,https://github.com/frouioui/vitess/actions/runs/516056511
 2021-01-27T19:39:42Z,region_example,https://github.com/frouioui/vitess/actions/runs/516056516
 2021-01-27T19:39:42Z,unit_race,https://github.com/frouioui/vitess/actions/runs/516056483
+2021-01-27T20:31:53Z,Cluster (17),https://github.com/frouioui/vitess/actions/runs/516166834
 2021-01-27T20:31:53Z,Unit Test (mariadb101),https://github.com/frouioui/vitess/actions/runs/516166828
 2021-01-27T20:31:53Z,Unit Test (mariadb102),https://github.com/frouioui/vitess/actions/runs/516166822
 2021-01-27T20:31:53Z,Unit Test (mariadb103),https://github.com/frouioui/vitess/actions/runs/516166813
