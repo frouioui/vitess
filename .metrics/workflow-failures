@@ -226,6 +226,8 @@
 2021-01-27T19:39:10Z,golangci-lint,https://github.com/frouioui/vitess/actions/runs/516055293
 2021-01-27T19:39:10Z,region_example,https://github.com/frouioui/vitess/actions/runs/516055304
 2021-01-27T19:39:10Z,unit_race,https://github.com/frouioui/vitess/actions/runs/516055273
+2021-01-27T19:39:42Z,Cluster (21),https://github.com/frouioui/vitess/actions/runs/516056491
+2021-01-27T19:39:42Z,Cluster (22),https://github.com/frouioui/vitess/actions/runs/516056508
 2021-01-27T19:39:42Z,Cluster (23),https://github.com/frouioui/vitess/actions/runs/516056503
 2021-01-27T19:39:42Z,Cluster (24),https://github.com/frouioui/vitess/actions/runs/516056519
 2021-01-27T19:39:42Z,Unit Test (mariadb101),https://github.com/frouioui/vitess/actions/runs/516056512
