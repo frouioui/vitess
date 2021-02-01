@@ -255,3 +255,4 @@
 2021-01-27T21:14:38Z,Cluster (17),https://github.com/frouioui/vitess/actions/runs/516255141
 2021-01-28T15:30:33Z,Cluster (12),https://github.com/frouioui/vitess/actions/runs/518382602
 2021-01-28T15:30:33Z,docker_test_3,https://github.com/frouioui/vitess/actions/runs/518382607
+2021-02-01T15:47:04Z,Unit Test (mariadb101),https://github.com/frouioui/vitess/actions/runs/528159206
