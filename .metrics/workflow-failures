@@ -268,3 +268,5 @@
 2021-02-08T15:49:01Z,.github/workflows/check_runs_analysis.yaml,https://github.com/frouioui/vitess/actions/runs/548480495
 2021-02-17T23:56:33Z,.github/workflows/check_runs_analysis.yaml,https://github.com/frouioui/vitess/actions/runs/576517444
 2021-02-18T12:17:54Z,endtoend,https://github.com/frouioui/vitess/actions/runs/578067868
+2021-02-19T16:45:32Z,Cluster (vreplication_v2),https://github.com/frouioui/vitess/actions/runs/582058961
+2021-02-19T16:45:32Z,endtoend,https://github.com/frouioui/vitess/actions/runs/582058958
