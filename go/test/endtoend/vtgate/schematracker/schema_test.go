@@ -68,12 +68,13 @@ func TestMain(m *testing.M) {
 		defer clusterInstance.Teardown()
 
 		// Start topo server
+		fmt.Printf("before clusterInstance.StartTopo")
 		if err := clusterInstance.StartTopo(); err != nil {
 			return 1, err
 		}
 
 		// List of users authorized to execute vschema ddl operations
-		clusterInstance.VtTabletExtraArgs = []string{"-queryserver-config-schema-change-signal", "-queryserver-config-schema-reload-time", "1"}
+		clusterInstance.VtTabletExtraArgs = []string{"-queryserver-config-schema-change-signal"}
 		clusterInstance.VtGateExtraArgs = []string{"-schema_change_signal"}
 
 		// Start keyspace
@@ -81,14 +82,17 @@ func TestMain(m *testing.M) {
 			Name:      keyspaceName,
 			SchemaSQL: sqlSchema,
 		}
+		fmt.Printf("before clusterInstance.StartUnshardedKeyspace")
 		if err := clusterInstance.StartUnshardedKeyspace(*keyspace, 1, false); err != nil {
 			return 1, err
 		}
 
+		fmt.Printf("Start clusterInstance.StartVtgate")
 		// Start vtgate
 		if err := clusterInstance.StartVtgate(); err != nil {
 			return 1, err
 		}
+
 		vtParams = mysql.ConnParams{
 			Host: clusterInstance.Hostname,
 			Port: clusterInstance.VtgateMySQLPort,

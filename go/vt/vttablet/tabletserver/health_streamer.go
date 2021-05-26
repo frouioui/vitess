@@ -127,6 +127,12 @@ func (hs *healthStreamer) Open() {
 	if hs.conns != nil {
 		// if we don't have a live conns object, it means we are not configured to signal when the schema changes
 		hs.conns.Open(hs.dbConfig, hs.dbConfig, hs.dbConfig)
+
+		// log.Info("Doing the reload for the first time")
+		// if err := hs.reloadLocked(); err != nil {
+		// 	log.Errorf("periodic schema reload failed in health stream: %v", err)
+		// }
+
 		hs.ticks.Start(func() {
 			if err := hs.reload(); err != nil {
 				log.Errorf("periodic schema reload failed in health stream: %v", err)
@@ -301,13 +307,18 @@ func (hs *healthStreamer) SetUnhealthyThreshold(v time.Duration) {
 	}
 }
 
-// reload reloads the schema from the underlying mysql
 func (hs *healthStreamer) reload() error {
 	hs.mu.Lock()
 	defer hs.mu.Unlock()
 
+	return hs.reloadLocked()
+}
+
+// reload reloads the schema from the underlying mysql
+func (hs *healthStreamer) reloadLocked() error {
 	// Schema Reload to happen only on master.
 	if hs.state.Target.TabletType != topodatapb.TabletType_MASTER {
+		log.Infof("quitting nil topodatapb.TabletType_MASTER")
 		return nil
 	}
 

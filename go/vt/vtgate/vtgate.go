@@ -283,15 +283,26 @@ func addKeyspaceToTracker(ctx context.Context, srvResolver *srvtopo.Resolver, st
 		log.Warningf("Unable to get all keyspaces: %v", err)
 		return
 	}
-	for _, keyspace := range keyspaces {
-		dest, err := srvResolver.ResolveDestination(ctx, keyspace, topodatapb.TabletType_MASTER, key.DestinationAnyShard{})
+	for k, keyspace := range keyspaces {
+		log.Infof("resolveAndLoadKeyspace %s", k)
+		resolveAndLoadKeyspace(ctx, srvResolver, st, gw, keyspace)
+	}
+}
+
+func resolveAndLoadKeyspace(ctx context.Context, srvResolver *srvtopo.Resolver, st *vtschema.Tracker, gw *TabletGateway, keyspace string) {
+	for {
+		dest, err := srvResolver.ResolveDestination(ctx, keyspace, topodatapb.TabletType_MASTER, key.DestinationAllShards{})
 		if err != nil {
 			log.Warningf("Unable to resolve destination: %v", err)
 		}
-		err = st.LoadKeyspace(gw, dest[0].Target)
-		if err != nil {
+		for _, shard := range dest {
+			err = st.LoadKeyspace(gw, shard.Target)
+			if err == nil {
+				return
+			}
 			log.Warningf("Unable to add keyspace to tracker: %v", err)
 		}
+		time.Sleep(time.Second * 1)
 	}
 }
 

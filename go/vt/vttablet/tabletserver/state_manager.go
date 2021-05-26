@@ -213,6 +213,7 @@ func (sm *stateManager) SetServingType(tabletType topodatapb.TabletType, terTime
 
 	log.Infof("Starting transition to %v %v, timestamp: %v", tabletType, state, terTimestamp)
 	if sm.mustTransition(tabletType, terTimestamp, state, reason) {
+		defer sm.hs.ticks.Trigger()
 		return sm.execTransition(tabletType, state)
 	}
 	return nil

@@ -80,12 +80,8 @@ func (topo *TopoProcess) SetupEtcd() (err error) {
 	if err != nil && !os.IsExist(err) {
 		return err
 	}
-	errFile, err := os.Create(path.Join(topo.DataDirectory, "topo-stderr.txt"))
-	if err != nil {
-		return err
-	}
 
-	topo.proc.Stderr = errFile
+	topo.proc.Stderr = os.Stderr
 
 	topo.proc.Env = append(topo.proc.Env, os.Environ()...)
 
