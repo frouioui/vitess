@@ -132,6 +132,7 @@ func (hs *healthStreamer) Open() {
 				log.Errorf("periodic schema reload failed in health stream: %v", err)
 			}
 		})
+		hs.ticks.Trigger()
 	}
 
 }

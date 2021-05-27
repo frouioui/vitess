@@ -127,6 +127,8 @@ type stateManager struct {
 	unhealthyThreshold    sync2.AtomicDuration
 	shutdownGracePeriod   time.Duration
 	transitionGracePeriod time.Duration
+
+	config *tabletenv.TabletConfig
 }
 
 type (
@@ -213,7 +215,6 @@ func (sm *stateManager) SetServingType(tabletType topodatapb.TabletType, terTime
 
 	log.Infof("Starting transition to %v %v, timestamp: %v", tabletType, state, terTimestamp)
 	if sm.mustTransition(tabletType, terTimestamp, state, reason) {
-		defer sm.hs.ticks.TriggerAfter(time.Second * 1) // this will make sure to do a schema reload if we are serving as primary
 		return sm.execTransition(tabletType, state)
 	}
 	return nil

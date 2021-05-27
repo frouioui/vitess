@@ -79,17 +79,27 @@ func TestMain(m *testing.M) {
 		}
 
 		// change schema
+		initialSchema := []string{
+			"create table vitess_init_sc1(id bigint primary key)",
+			"create table vitess_init_sc2(id bigint primary key)",
+		}
+
+		err = cluster.Execute(initialSchema, "vttest")
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "%v", err)
+			return 1
+		}
 
 		err = cluster.SetupTablet(init)
 		if err != nil {
 			return 1
 		}
 
-		err = cluster.Execute(procSQL, "vttest")
-		if err != nil {
-			fmt.Fprintf(os.Stderr, "%v", err)
-			return 1
-		}
+		// err = cluster.Execute(procSQL, "vttest")
+		// if err != nil {
+		// 	fmt.Fprintf(os.Stderr, "%v", err)
+		// 	return 1
+		// }
 		defer cluster.TearDown()
 
 		connParams = cluster.MySQLConnParams()
@@ -321,7 +331,7 @@ var tableACLConfig = `{
     },
     {
       "name": "vitess_healthstream",
-      "table_names_or_prefixes": ["vitess_sc1", "vitess_sc2"],
+      "table_names_or_prefixes": ["vitess_init_sc1", "vitess_init_sc2", "vitess_sc1", "vitess_sc2"],
       "readers": ["dev"],
       "writers": ["dev"],
       "admins": ["dev"]
