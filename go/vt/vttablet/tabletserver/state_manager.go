@@ -127,6 +127,8 @@ type stateManager struct {
 	unhealthyThreshold    sync2.AtomicDuration
 	shutdownGracePeriod   time.Duration
 	transitionGracePeriod time.Duration
+
+	config *tabletenv.TabletConfig
 }
 
 type (

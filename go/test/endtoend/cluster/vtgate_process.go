@@ -94,8 +94,8 @@ func (vtgate *VtgateProcess) Setup() (err error) {
 
 	vtgate.proc.Args = append(vtgate.proc.Args, vtgate.ExtraArgs...)
 
-	errFile, _ := os.Create(path.Join(vtgate.LogDir, "vtgate-stderr.txt"))
-	vtgate.proc.Stderr = errFile
+	//errFile, _ := os.Create(path.Join(vtgate.LogDir, "vtgate-stderr.txt"))
+	vtgate.proc.Stderr = os.Stderr
 
 	vtgate.proc.Env = append(vtgate.proc.Env, os.Environ()...)
 

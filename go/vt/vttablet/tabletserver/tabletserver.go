@@ -202,6 +202,7 @@ func NewTabletServer(name string, config *tabletenv.TabletConfig, topoServer *to
 		ddle:        tsv.onlineDDLExecutor,
 		throttler:   tsv.lagThrottler,
 		tableGC:     tsv.tableGC,
+		config:      tsv.Config(),
 	}
 
 	tsv.exporter.NewGaugeFunc("TabletState", "Tablet server state", func() int64 { return int64(tsv.sm.State()) })
