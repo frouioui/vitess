@@ -212,18 +212,15 @@ func (db *LocalCluster) MySQLAppDebugConnParams() mysql.ConnParams {
 	return connParams
 }
 
-// Setup brings up the self-contained Vitess cluster by spinning up
-// MySQL and Vitess instances. The spawned processes will be running
-// until the TearDown() method is called.
-// Please ensure to `defer db.TearDown()` after calling this method
-func (db *LocalCluster) Setup() error {
+// SetupMySQL starts the underlying mysql instance
+func (db *LocalCluster) SetupMySQL() (bool,error) {
 	var err error
 
 	if db.Env == nil {
 		log.Info("No environment in cluster settings. Creating default...")
 		db.Env, err = NewDefaultEnv()
 		if err != nil {
-			return err
+			return false, err
 		}
 	}
 
@@ -231,7 +228,7 @@ func (db *LocalCluster) Setup() error {
 
 	db.mysql, err = db.Env.MySQLManager(db.ExtraMyCnf, db.SnapshotFile)
 	if err != nil {
-		return err
+		return false, err
 	}
 
 	initializing := true
@@ -246,11 +243,11 @@ func (db *LocalCluster) Setup() error {
 			if err, ok := err.(*exec.ExitError); ok {
 				log.Errorf("stderr: %s", err.Stderr)
 			}
-			return err
+			return false, err
 		}
 
 		if err := db.createDatabases(); err != nil {
-			return err
+			return false, err
 		}
 	} else {
 		log.Infof("Starting MySQL Manager (%T)...", db.mysql)
@@ -259,13 +256,17 @@ func (db *LocalCluster) Setup() error {
 			if err, ok := err.(*exec.ExitError); ok {
 				log.Errorf("stderr: %s", err.Stderr)
 			}
-			return err
+			return false, err
 		}
 	}
 
 	mycfg, _ := json.Marshal(db.mysql.Params(""))
 	log.Infof("MySQL up: %s", mycfg)
+	return initializing, nil
+}
 
+// SetupTablet starts the tablet process
+func (db *LocalCluster) SetupTablet(initializing bool) error {
 	if !db.OnlyMySQL {
 		log.Infof("Starting vtcombo...")
 		db.vt = VtcomboProcess(db.Env, &db.Config, db.mysql)
@@ -296,6 +297,18 @@ func (db *LocalCluster) Setup() error {
 	}
 
 	return nil
+}
+
+// Setup brings up the self-contained Vitess cluster by spinning up
+// MySQL and Vitess instances. The spawned processes will be running
+// until the TearDown() method is called.
+// Please ensure to `defer db.TearDown()` after calling this method
+func (db *LocalCluster) Setup() error {
+	initializing, err := db.SetupMySQL()
+	if err != nil {
+		return err
+	}
+	return db.SetupTablet(initializing)
 }
 
 // TearDown shuts down all the processes in the local cluster

@@ -71,11 +71,21 @@ func TestMain(m *testing.M) {
 		cluster := vttest.LocalCluster{
 			Config: cfg,
 		}
-		if err := cluster.Setup(); err != nil {
+
+		init, err := cluster.SetupMySQL()
+		if err != nil {
 			fmt.Fprintf(os.Stderr, "could not launch mysql: %v\n", err)
 			return 1
 		}
-		err := cluster.Execute(procSQL, "vttest")
+
+		// change schema
+
+		err = cluster.SetupTablet(init)
+		if err != nil {
+			return 1
+		}
+
+		err = cluster.Execute(procSQL, "vttest")
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "%v", err)
 			return 1

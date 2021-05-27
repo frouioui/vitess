@@ -40,6 +40,7 @@ import (
 	"hash/crc32"
 	"html/template"
 	"net/http"
+	"runtime/debug"
 	"sort"
 	"strings"
 	"sync"
@@ -557,6 +558,7 @@ func (hc *HealthCheckImpl) cacheStatusMap() map[string]*TabletsCacheStatus {
 
 // Close stops the healthcheck.
 func (hc *HealthCheckImpl) Close() error {
+	log.Warningf("shutting down health check")
 	hc.mu.Lock()
 	for _, th := range hc.healthByAlias {
 		th.cancelFunc()
@@ -567,6 +569,8 @@ func (hc *HealthCheckImpl) Close() error {
 		tw.Stop()
 	}
 	for s := range hc.subscribers {
+		log.Warningf("shutting down health check subscriber")
+		log.Warningf(string(debug.Stack()))
 		close(s)
 	}
 	hc.subscribers = nil

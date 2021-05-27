@@ -160,6 +160,7 @@ func (gw *TabletGateway) WaitForTablets(ctx context.Context, tabletTypesToWait [
 // Close shuts down underlying connections.
 // This function hides the inner implementation.
 func (gw *TabletGateway) Close(_ context.Context) error {
+	log.Warningf("shutting down tablet gateway")
 	gw.buffer.Shutdown()
 	return gw.hc.Close()
 }

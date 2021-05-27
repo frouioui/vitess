@@ -66,7 +66,7 @@ func (t *Tracker) LoadKeyspace(conn queryservice.QueryService, target *querypb.T
 		return err
 	}
 	t.updateTables(target.Keyspace, res)
-	log.Infof("finished loading schema for keyspace %s. Found %d tables", target.Keyspace, len(res.Rows))
+	log.Warningf("finished loading schema for keyspace %s. Found %d tables", target.Keyspace, len(res.Rows))
 	return nil
 }
 
