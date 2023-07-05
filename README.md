@@ -19,7 +19,7 @@ since 2011, and has grown to encompass tens of thousands of MySQL nodes.
 
 For more about Vitess, please visit [vitess.io](https://vitess.io).
 
-Vitess has a growing community. You can view the list of adopters
+Vitess has a growing community. You can view the list of adoptzzzers
 [here](https://github.com/vitessio/vitess/blob/main/ADOPTERS.md).
 
 ## Reporting a Problem, Issue, or Bug
