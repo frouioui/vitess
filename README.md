@@ -19,8 +19,6 @@ since 2011, and has grown to encompass tens of thousands of MySQL nodes.
 
 For more about Vitess, please visit [vitess.io](https://vitess.io).
 
-toto
-
 Vitess has a growing community. You can view the list of adopters
 [here](https://github.com/vitessio/vitess/blob/main/ADOPTERS.md).
 
