@@ -4,7 +4,11 @@
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fvitessio%2Fvitess.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fvitessio%2Fvitess?ref=badge_shield)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/1724/badge)](https://bestpractices.coreinfrastructure.org/projects/1724)
 
+<<<<<<< HEAD
 # Vitess titi
+=======
+# Vitess tata
+>>>>>>> b3fd048092 (Merge pull request #40 from frouioui/revert-39-revert-37-frouioui-patch-1)
 
 Vitess is a database clustering system for horizontal scaling of MySQL
 through generalized sharding.
