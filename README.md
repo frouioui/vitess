@@ -6,7 +6,11 @@
 
 # Vitess 
 
+<<<<<<< HEAD
 Test A
+=======
+Test B
+>>>>>>> fc921a6600 (Update README.md (#108))
 
 Vitess is a database clustering system for horizontal scaling of MySQL
 through generalized sharding.
