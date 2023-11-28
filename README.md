@@ -6,7 +6,7 @@
 
 # Vitess 
 
-Test B
+Test BTT
 
 Vitess is a database clustering system for horizontal scaling of MySQL
 through generalized sharding.
