@@ -14,4 +14,9 @@
  * [release-19.0] Code Freeze for `v19.0.0-RC1` [#257](https://github.com/frouioui/vitess/pull/257)
  * Bump to `v20.0.0-SNAPSHOT` after the `v19.0.0-RC1` release [#258](https://github.com/frouioui/vitess/pull/258)
  * [release-19.0] Release of `v19.0.0-RC1` [#259](https://github.com/frouioui/vitess/pull/259)
+ * [release-19.0] Code Freeze for `v19.0.0-RC1` [#264](https://github.com/frouioui/vitess/pull/264)
+ * Bump to `v20.0.0-SNAPSHOT` after the `v19.0.0-RC1` release [#265](https://github.com/frouioui/vitess/pull/265)
+ * [release-19.0] Release of `v19.0.0-RC1` [#266](https://github.com/frouioui/vitess/pull/266)
+ * [release-19.0] Bump to `v19.0.0-SNAPSHOT` after the `v19.0.0-RC1` release [#268](https://github.com/frouioui/vitess/pull/268)
+ * [release-19.0] Code Freeze for `v19.0.0` [#270](https://github.com/frouioui/vitess/pull/270)
 
