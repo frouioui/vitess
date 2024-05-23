@@ -10,4 +10,6 @@
  * Copy `v19.0.1` release notes on `main` [#313](https://github.com/frouioui/vitess/pull/313)
  * [release-20.0-rc] Code Freeze for `v20.0.0-RC1` [#320](https://github.com/frouioui/vitess/pull/320)
  * Bump to `v21.0.0-SNAPSHOT` after the `v20.0.0-RC1` release [#321](https://github.com/frouioui/vitess/pull/321)
+ * [release-20.0-rc] Release of `v20.0.0-RC1` [#322](https://github.com/frouioui/vitess/pull/322)
+ * [release-20.0-rc] Bump to `v20.0.0-SNAPSHOT` after the `v20.0.0-RC1` release [#324](https://github.com/frouioui/vitess/pull/324)
 
