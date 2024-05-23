@@ -339,7 +339,7 @@ Full details on the node v20.12.2 release can be found at https://nodejs.org/en/
 ------------
 The entire changelog for this release can be found [here](https://github.com/frouioui/vitess/blob/main/changelog/20.0/20.0.0/changelog.md).
 
-The release includes 12 merged Pull Requests.
+The release includes 14 merged Pull Requests.
 
 Thanks to all our contributors: @frouioui
 
