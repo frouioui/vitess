@@ -361,9 +361,9 @@ Full details on the node v20.12.2 release can be found at https://nodejs.org/en/
 The vtadmin-web UI no longer has a dependency on highcharts for licensing reasons. The tablet QPS, tablet VReplication QPS, and workflow streams lag charts have all been replaced by d3. We'll be iteratively improving the d3 charts until they reach feature parity with the original highcharts charts. 
 
 ------------
-The entire changelog for this release can be found [here](https://github.com/vitessio/vitess/blob/main/changelog/20.0/20.0.0/changelog.md).
+The entire changelog for this release can be found [here](https://github.com/frouioui/vitess/blob/main/changelog/20.0/20.0.0/changelog.md).
 
-The release includes 441 merged Pull Requests.
+The release includes 15 merged Pull Requests.
 
-Thanks to all our contributors: @Aoang, @Ari1009, @GuptaManan100, @Its-Maniaco, @Maniktherana, @VaibhavMalik4187, @ajm188, @aparajon, @app/dependabot, @app/github-actions, @app/vitess-bot, @arthurschreiber, @bddicken, @beingnoble03, @brendar, @crazeteam, @dbussink, @deepthi, @demmer, @derekperkins, @ejortegau, @frouioui, @harshit-gangal, @mattlord, @maxenglander, @mdlayher, @notfelineit, @pavedroad, @rafer, @rohit-nayak-ps, @rvrangel, @shlomi-noach, @systay, @timvaillancourt, @tycol7, @vitess-bot, @vmg, @wangweicugw, @whuang8, @yoheimuta
+Thanks to all our contributors: @frouioui
 
