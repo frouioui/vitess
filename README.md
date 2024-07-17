@@ -14,7 +14,7 @@ database queries to remain agnostic to the distribution of data onto
 multiple shards. With Vitess, you can even split and merge shards as your needs
 grow, with an atomic cutover step that takes only a few seconds.
 
-Vitess has been a core component of YouTube's database infrastructure
+Vitess has been a core component of YouTube's database infrastructure test
 since 2011, and has grown to encompass tens of thousands of MySQL nodes.
 
 For more about Vitess, please visit [vitess.io](https://vitess.io).
