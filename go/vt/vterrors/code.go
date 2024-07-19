@@ -105,6 +105,7 @@ var (
 	// VT13001 General Error
 	VT13001 = errorWithoutState("VT13001", vtrpcpb.Code_INTERNAL, "[BUG] %s", "This error should not happen and is a bug. Please file an issue on GitHub: https://github.com/vitessio/vitess/issues/new/choose.")
 	VT13002 = errorWithoutState("VT13002", vtrpcpb.Code_INTERNAL, "unexpected AST struct for query: %s", "This error should not happen and is a bug. Please file an issue on GitHub: https://github.com/vitessio/vitess/issues/new/choose.")
+	VT13003 = errorWithoutState("VT13003", vtrpcpb.Code_INTERNAL, "unexpected AST struct for query: %s", "This error should not happen and is a bug. Please file an issue on GitHub: https://github.com/vitessio/vitess/issues/new/choose.")
 
 	VT14001 = errorWithoutState("VT14001", vtrpcpb.Code_UNAVAILABLE, "connection error", "The connection failed.")
 	VT14002 = errorWithoutState("VT14002", vtrpcpb.Code_UNAVAILABLE, "no available connection", "No available connection.")
@@ -186,6 +187,7 @@ var (
 		VT12002,
 		VT13001,
 		VT13002,
+		VT13003,
 		VT14001,
 		VT14002,
 		VT14003,
