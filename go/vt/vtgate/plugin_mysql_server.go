@@ -78,6 +78,7 @@ var (
 	mysqlDrainOnTerm         bool
 
 	mysqlServerFlushDelay = 100 * time.Millisecond
+	t                     bool
 )
 
 func registerPluginFlags(fs *pflag.FlagSet) {
@@ -104,6 +105,7 @@ func registerPluginFlags(fs *pflag.FlagSet) {
 	fs.DurationVar(&mysqlServerFlushDelay, "mysql_server_flush_delay", mysqlServerFlushDelay, "Delay after which buffered response will be flushed to the client.")
 	fs.StringVar(&mysqlDefaultWorkloadName, "mysql_default_workload", mysqlDefaultWorkloadName, "Default session workload (OLTP, OLAP, DBA)")
 	fs.BoolVar(&mysqlDrainOnTerm, "mysql-server-drain-onterm", mysqlDrainOnTerm, "If set, the server waits for --onterm_timeout for already connected clients to complete their in flight work")
+	fs.BoolVar(&t, "new-flag-test", t, "This is a test of a new VTGate flag.")
 }
 
 // vtgateHandler implements the Listener interface.
