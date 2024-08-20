@@ -4,7 +4,7 @@
 [![FOSSA Status](https://app.fossa.com/api/projects/custom%2B162%2Fvitess.svg?type=shield&issueType=license)](https://app.fossa.com/projects/custom%2B162%2Fvitess?ref=badge_shield&issueType=license)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/1724/badge)](https://bestpractices.coreinfrastructure.org/projects/1724)
 
-# Vitess 
+# Vitess test
 
 Vitess is a database clustering system for horizontal scaling of MySQL
 through generalized sharding.
